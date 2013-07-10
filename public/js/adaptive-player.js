@@ -19,6 +19,7 @@ AdaptivePlayer.prototype.initialize = function(){
             <div class="overlay">
                 <img src="{{cover}}" />
             </div>
+            <div class="draggable"></div>
         </div>
         <audio class="sound" src="{{file}}" controls></audio>
     */
