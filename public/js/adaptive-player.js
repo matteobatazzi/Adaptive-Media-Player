@@ -25,9 +25,10 @@ AdaptivePlayer.prototype.initialize = function(){
     var cover = $('<img />').attr('src', this.cover);
     this.$cover = $('<div class="cover"></div>');
     this.$overlay = $('<div class="overlay"></div>');
+    this.$draggable = $('<div class="draggable"></div>');
 
     this.$overlay.append(cover.clone());
-    this.$cover.append(cover.clone().addClass("greyscale")).append(this.$overlay);
+    this.$cover.append(cover.clone().addClass("greyscale")).append(this.$overlay).append(this.$draggable);
     this.$el.append(this.$cover).append(this.$audio);
 
     this.bindEvents();
@@ -35,10 +36,27 @@ AdaptivePlayer.prototype.initialize = function(){
 
 AdaptivePlayer.prototype.bindEvents = function(){
     var that = this;
-    this.$cover.on('click', function(e){
-        var position = (e.pageX - $(e.target).offset().left) / that.size;
-        that.setTime(position);
-    });
+    this.$cover
+        .on('mousedown', function(e){
+            that._isDragging = true;
+            that.$overlay.addClass('dragging');
+
+            var position = (e.pageX - $(e.target).offset().left) / that.size;
+            that.setOverlay(position);
+        })
+        .on('mouseup', function(e){
+            that._isDragging = false;
+            that.$overlay.remove('dragging');
+
+            var position = (e.pageX - $(e.target).offset().left) / that.size;
+            that.setTime(position);
+        })
+        .on('mousemove', function(e){
+            if(!that._isDragging) return;
+
+            var position = (e.pageX - $(e.target).offset().left) / that.size;
+            that.setOverlay(position);
+        });
 };
 
 AdaptivePlayer.prototype.setTime = function(position){
@@ -54,6 +72,7 @@ AdaptivePlayer.prototype.play = function(){
     this.$audio.play();
     var that = this;
     this.interval = setInterval(function(){
+        if(that._isDragging) return;
         that.checkPosition();
     }, 100);
 };
