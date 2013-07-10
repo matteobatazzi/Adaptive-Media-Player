@@ -46,7 +46,7 @@ AdaptivePlayer.prototype.bindEvents = function(){
         })
         .on('mouseup', function(e){
             that._isDragging = false;
-            that.$overlay.remove('dragging');
+            that.$overlay.removeClass('dragging');
 
             var position = (e.pageX - $(e.target).offset().left) / that.size;
             that.setTime(position);
