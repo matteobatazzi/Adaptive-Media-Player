@@ -6,9 +6,9 @@
 
 .greyscale{
     filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
-    filter: url(desaturate.svg#greyscale);
+    -webkit-filter: grayscale(100%);
+
 }
 
 .overlay{
@@ -16,7 +16,18 @@
     position: absolute;
     overflow: hidden;
     top: 0;
-    width: 0px;
+    width: 0;
+}
+
+.overlay.dragging{
+    transition: 0;
+}
+
+.draggable{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
 }
 
 img{
