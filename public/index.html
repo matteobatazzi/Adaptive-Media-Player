@@ -13,10 +13,29 @@
   
   <body>
 
-  <div class="amp"></div>
+  <div class="amp ok"></div>
+
+  <div class="amp">
+    <div class="status">
+      <h2 class="track_name">I Feel The Dark</h2>
+      <h3 class="artist_name">Opeth</h3>
+
+      <ul class="main_controls">
+        <li class="ico icon-previous"><span>Previous Track</span></li>
+        <li class="ico icon-play"><span>Play/Pause</span></li>
+        <li class="ico icon-next"><span>Next Track</span></li>
+      </lu>
+
+      <ul class="secondary_controls">
+        <li class="ico icon-shuffle"><span>Shuffle</span></li>
+        <li class="ico icon-repeat"><span>Repeat</span></li>
+        <li class="ico icon-volume"><span>Volume</span></li>
+      </ul>
+    </div>
+  </div>
 
   <script>
-    var player = new AdaptivePlayer($('.amp'), {cover: "img/heritage.jpg", file :"music/haxprocess.mp3"});
+    var player = new AdaptivePlayer($('.amp.ok'), {cover: "img/heritage.jpg", file :"music/haxprocess.mp3"});
     player.play();
   </script>
   </body>

@@ -1,30 +1,114 @@
-.cover
-  position: relative
-  width: 300px
-  height: 300px
+@import "mixins/border_radius"
+@import "mixins/box_sizing"
+@import "mixins/box_shadow"
 
-.greyscale
-  filter: grayscale(100%)
-  -webkit-filter: grayscale(100%)
-  -moz-filter: grayscale(100%)
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,600)
 
-.overlay
-  transition: 200ms
-  position: absolute
-  overflow: hidden
-  top: 0
-  width: 0px
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)*/
 
-  &.dragging
-    transition: 0
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
 
-.draggable
-  width: 300px
-  height: 300px
-  position: absolute
-  top: 0
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+  display: block
+body
+  line-height: 1
+ol, ul
+  list-style: none
+blockquote, q
+  quotes: none
+blockquote:before, blockquote:after,
+q:before, q:after
+  content: ""
+  content: none
+table
+  border-collapse: collapse
+  border-spacing: 0
 
 
-img
-  width: 300px
-  height: 300px
+// Adaptive Media Player by Matteo Batazzi (@Croakx) & Quentin Focheux
+.amp
+  // Default width
+  width: 600px
+  font-family: 'Open Sans', sans-serif
+  // Cover
+  .cover
+    position: relative
+    width: 600px
+    height: 600px
+
+  .greyscale
+    filter: grayscale(100%)
+    -webkit-filter: grayscale(100%)
+    -moz-filter: grayscale(100%)
+
+  .overlay
+    transition: 200ms
+    position: absolute
+    overflow: hidden
+    top: 0
+    width: 0px
+
+    &.dragging
+      transition: 0
+
+  .draggable
+    width: 600px
+    height: 600px
+    position: absolute
+    top: 0
+
+  img
+    width: 600px
+    height: 600px
+
+  // Media Player Status Bar
+  .status
+    width: 100%
+    padding: 10px 8px
+    background: #262626
+    @include box-sizing(border-box)
+    @include border-radius(0 0 3px 3px)
+    
+    .track_name
+      margin: 0 0 5px
+      font-size: 14px
+      color: #fff
+      text-shadow: 0 1px 1px #333
+
+    .artist_name
+      font-size: 12px 
+      color: #fff
+      text-shadow: 0 1px 1px #333
+
+    .main_controls
+      margin: 0 auto
+      span
+        display: none 
+    
+    .secondary_controls
+      float: right
+      span
+        display: none
+

@@ -3,7 +3,7 @@ var AdaptivePlayer = function($el, options){
     this.cover = options.cover;
     this.file = options.file;
 
-    this.size = 300;
+    this.size = 600;
 
     this.initialize();
 };
