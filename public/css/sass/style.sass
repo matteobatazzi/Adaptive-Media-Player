@@ -1,6 +1,7 @@
 @import "mixins/border_radius"
 @import "mixins/box_sizing"
 @import "mixins/box_shadow"
+@import "../stylesheets/font.css"
 
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,600)
 
@@ -85,30 +86,39 @@ table
 
   // Media Player Status Bar
   .status
+    position: relative
     width: 100%
+    height: 50px
     padding: 10px 8px
     background: #262626
     @include box-sizing(border-box)
     @include border-radius(0 0 3px 3px)
     
-    .track_name
-      margin: 0 0 5px
-      font-size: 14px
-      color: #fff
-      text-shadow: 0 1px 1px #333
+    .music_info
+      position: absolute
+      top: 10px
+      left: 5px
+      .track_name
+        margin: 0 0 5px
+        font-size: 14px
+        color: #fff
+        text-shadow: 0 1px 1px #333
 
-    .artist_name
-      font-size: 12px 
-      color: #fff
-      text-shadow: 0 1px 1px #333
-
-    .main_controls
-      margin: 0 auto
-      span
-        display: none 
+      .artist_name
+        font-size: 12px 
+        color: #fff
+        text-shadow: 0 1px 1px #333
     
-    .secondary_controls
-      float: right
-      span
-        display: none
-
+    .control
+      li
+        float: left
+      .ico
+        font-size: 15px
+        color: #fff
+        span
+          display: none 
+      &.main
+        width: 200px
+        margin: 0 auto
+      &.secondary
+        float: right

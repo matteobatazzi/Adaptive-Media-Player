@@ -1,0 +1,66 @@
+@font-face {
+	font-family: 'fontawesome';
+	src:url('fonts/fontawesome.eot');
+	src:url('fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
+		url('fonts/fontawesome.woff') format('woff'),
+		url('fonts/fontawesome.ttf') format('truetype'),
+		url('fonts/fontawesome.svg#fontawesome') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'fontawesome';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-backward, .icon-play, .icon-pause, .icon-forward, .icon-random, .icon-volume-off, .icon-volume-down, .icon-volume-up, .icon-loop {
+	font-family: 'fontawesome';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-backward:before {
+	content: "\f04a";
+}
+.icon-play:before {
+	content: "\f04b";
+}
+.icon-pause:before {
+	content: "\f04c";
+}
+.icon-forward:before {
+	content: "\f04e";
+}
+.icon-random:before {
+	content: "\f074";
+}
+.icon-volume-off:before {
+	content: "\f026";
+}
+.icon-volume-down:before {
+	content: "\f027";
+}
+.icon-volume-up:before {
+	content: "\f028";
+}
+.icon-loop:before {
+	content: "\f079";
+}

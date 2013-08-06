@@ -1,8 +1,9 @@
+@import url(../stylesheets/font.css);
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,600);
 /* http://meyerweb.com/eric/tools/css/reset/
  * v2.0 | 20110126
  * License: none (public domain) */
-/* line 11, ../sass/style.sass */
+/* line 12, ../sass/style.sass */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,58 +26,58 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 32, ../sass/style.sass */
+/* line 33, ../sass/style.sass */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-/* line 35, ../sass/style.sass */
+/* line 36, ../sass/style.sass */
 body {
   line-height: 1;
 }
 
-/* line 37, ../sass/style.sass */
+/* line 38, ../sass/style.sass */
 ol, ul {
   list-style: none;
 }
 
-/* line 39, ../sass/style.sass */
+/* line 40, ../sass/style.sass */
 blockquote, q {
   quotes: none;
 }
 
-/* line 41, ../sass/style.sass */
+/* line 42, ../sass/style.sass */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: "";
   content: none;
 }
 
-/* line 45, ../sass/style.sass */
+/* line 46, ../sass/style.sass */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 51, ../sass/style.sass */
+/* line 52, ../sass/style.sass */
 .amp {
   width: 600px;
   font-family: "Open Sans", sans-serif;
 }
-/* line 56, ../sass/style.sass */
+/* line 57, ../sass/style.sass */
 .amp .cover {
   position: relative;
   width: 600px;
   height: 600px;
 }
-/* line 61, ../sass/style.sass */
+/* line 62, ../sass/style.sass */
 .amp .greyscale {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
 }
-/* line 66, ../sass/style.sass */
+/* line 67, ../sass/style.sass */
 .amp .overlay {
   transition: 200ms;
   position: absolute;
@@ -84,25 +85,27 @@ table {
   top: 0;
   width: 0px;
 }
-/* line 73, ../sass/style.sass */
+/* line 74, ../sass/style.sass */
 .amp .overlay.dragging {
   transition: 0;
 }
-/* line 76, ../sass/style.sass */
+/* line 77, ../sass/style.sass */
 .amp .draggable {
   width: 600px;
   height: 600px;
   position: absolute;
   top: 0;
 }
-/* line 82, ../sass/style.sass */
+/* line 83, ../sass/style.sass */
 .amp img {
   width: 600px;
   height: 600px;
 }
-/* line 87, ../sass/style.sass */
+/* line 88, ../sass/style.sass */
 .amp .status {
+  position: relative;
   width: 100%;
+  height: 50px;
   padding: 10px 8px;
   background: #262626;
   -webkit-box-sizing: border-box;
@@ -114,32 +117,44 @@ table {
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
-/* line 94, ../sass/style.sass */
-.amp .status .track_name {
+/* line 97, ../sass/style.sass */
+.amp .status .music_info {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+/* line 101, ../sass/style.sass */
+.amp .status .music_info .track_name {
   margin: 0 0 5px;
   font-size: 14px;
   color: white;
   text-shadow: 0 1px 1px #333333;
 }
-/* line 100, ../sass/style.sass */
-.amp .status .artist_name {
+/* line 107, ../sass/style.sass */
+.amp .status .music_info .artist_name {
   font-size: 12px;
   color: white;
   text-shadow: 0 1px 1px #333333;
 }
-/* line 105, ../sass/style.sass */
-.amp .status .main_controls {
+/* line 113, ../sass/style.sass */
+.amp .status .control li {
+  float: left;
+}
+/* line 115, ../sass/style.sass */
+.amp .status .control .ico {
+  font-size: 15px;
+  color: white;
+}
+/* line 118, ../sass/style.sass */
+.amp .status .control .ico span {
+  display: none;
+}
+/* line 120, ../sass/style.sass */
+.amp .status .control.main {
+  width: 200px;
   margin: 0 auto;
 }
-/* line 107, ../sass/style.sass */
-.amp .status .main_controls span {
-  display: none;
-}
-/* line 110, ../sass/style.sass */
-.amp .status .secondary_controls {
+/* line 123, ../sass/style.sass */
+.amp .status .control.secondary {
   float: right;
-}
-/* line 112, ../sass/style.sass */
-.amp .status .secondary_controls span {
-  display: none;
 }
