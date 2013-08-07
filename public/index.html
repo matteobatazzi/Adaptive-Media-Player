@@ -7,6 +7,7 @@
     <meta name="description" content="Adaptive Media Player, A Free Responsive Media Player" /> 
     <meta name="author" content="Matteo Batazzi & Quentin Focheux" />
     <link href="css/stylesheets/style.css" rel="stylesheet">
+    <script src="lib/underscore-min.js"></script>
     <script src="lib/jquery-1.7.2.min.js"></script>
     <script src="js/adaptive-player.js"></script>
   </head>
@@ -15,32 +16,40 @@
 
   <div class="amp ok"></div>
 
-  <div class="amp">
-    <div class="status">
-      <div class="music_info">
-        <h2 class="track_name">I Feel The Dark</h2>
-        <h3 class="artist_name">Opeth</h3>
+  <script id="amp-tpl" type="text/template">
+      <div class="amp">
+          <div class="cover">
+              <img class="greyscale" src="<%- cover %>" />
+              <div class="overlay">
+                  <img src="<%- cover %>" />
+              </div>
+              <div class="draggable"></div>
+          </div>
+          <div class="status">
+              <div class="music_info">
+                  <h2 class="track_name"><% track.title %></h2>
+                  <h3 class="artist_name"><% track.artist %></h3>
+              </div>
+
+              <ul class="control main">
+                  <li class="ico icon-backward"><span>Previous Track</span></li>
+                  <li class="ico icon-play" data-action="play"><span>Play/Pause</span></li>
+                  <li class="ico icon-forward"><span>Next Track</span></li>
+              </ul>
+
+              <ul class="control secondary">
+                  <li class="ico icon-random"><span>Shuffle</span></li>
+                  <li class="ico icon-loop"><span>Repeat</span></li>
+                  <li class="ico icon-volume-down"><span>Volume</span></li>
+              </ul>
+          </div>
       </div>
-
-      <ul class="control main">
-        <li class="ico icon-backward"><span>Previous Track</span></li>
-        <li class="ico icon-play"><span>Play/Pause</span></li>
-        <li class="ico icon-forward"><span>Next Track</span></li>
-      </ul>
-
-      <ul class="control secondary">
-        <li class="ico icon-random"><span>Shuffle</span></li>
-        <li class="ico icon-loop"><span>Repeat</span></li>
-        <li class="ico icon-volume-down"><span>Volume</span></li>
-      </ul>
-    </div>
-  </div>
+  </script>
 
   <script>
-    var player = new AdaptivePlayer($('.amp.ok'), {cover: "img/heritage.jpg", file :"music/haxprocess.mp3"});
-    player.play();
+      var player = new AdaptivePlayer($('.amp.ok'), {cover: "img/heritage.jpg", file :"music/haxprocess.mp3"});
+      //player.play();
   </script>
+
   </body>
-
-
 </html>

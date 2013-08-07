@@ -2,41 +2,42 @@ var AdaptivePlayer = function($el, options){
     this.$el = $el;
     this.cover = options.cover;
     this.file = options.file;
+    console.log(this.file);
+    this.track = {
+        title: this.file
+    };
 
     this.size = 600;
 
     this.initialize();
+    return this;
 };
 
 AdaptivePlayer.prototype.initialize = function(){
+    if(this.initialized) return;
+    this.initialized = true;
+
+    this.$el.html(_.template($('#amp-tpl').html(), this));
+
+    //Cover
+    this.$cover = this.$el.find('.cover');
+    this.$overlay = this.$el.find('.overlay');
+
+    //Audio
     this.$audio = new Audio(this.file);
-    this.$audio.controls = true;
+    this.$audio.controls = false;
     this.$audio.volume = 0;
+    this.$el.find('.amp').append(this.$audio);
 
-    /* RENDER
-        <div class="cover">
-            <img class="greyscale" src="{{cover}}" />
-            <div class="overlay">
-                <img src="{{cover}}" />
-            </div>
-            <div class="draggable"></div>
-        </div>
-        <audio class="sound" src="{{file}}" controls></audio>
-    */
-    var cover = $('<img />').attr('src', this.cover);
-    this.$cover = $('<div class="cover"></div>');
-    this.$overlay = $('<div class="overlay"></div>');
-    this.$draggable = $('<div class="draggable"></div>');
-
-    this.$overlay.append(cover.clone());
-    this.$cover.append(cover.clone().addClass("greyscale")).append(this.$overlay).append(this.$draggable);
-    this.$el.append(this.$cover).append(this.$audio);
+    //Controls
+    this.$controls = this.$el.find('.control.main');
 
     this.bindEvents();
 };
 
 AdaptivePlayer.prototype.bindEvents = function(){
     var that = this;
+
     this.$cover
         .on('mousedown', function(e){
             that._isDragging = true;
@@ -58,6 +59,13 @@ AdaptivePlayer.prototype.bindEvents = function(){
             var position = (e.pageX - $(e.target).offset().left) / that.size;
             that.setOverlay(position);
         });
+    this.$controls
+        .on('click', 'li', function(){
+            var action = $(this).data('action');
+            if(typeof that[action] === "function"){
+                that[action]();
+            }
+        });
 };
 
 AdaptivePlayer.prototype.setTime = function(position){
@@ -71,6 +79,7 @@ AdaptivePlayer.prototype.setOverlay = function(position){
 
 AdaptivePlayer.prototype.play = function(){
     this.$audio.play();
+    this.$controls.find('li[data-action="play"]').data('action','pause')
     var that = this;
     this.interval = setInterval(function(){
         if(that._isDragging) return;
